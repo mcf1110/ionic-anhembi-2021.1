@@ -1,20 +1,120 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Home Page
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding" color="light">
+  <h1><strong>Hi Mike, <br> Where do you want to go?</strong></h1>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-item>
+    <ion-icon name="location" slot="start"></ion-icon>
+    <ion-label position="floating">Input Destination</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col size="auto">
+      <h2>Daily Scenary</h2>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-text color="primary">
+        <p>Updated</p>
+      </ion-text>
+    </ion-col>
+    <ion-col size="auto" class="ml-auto">
+      <ion-button fill="clear" color="medium">
+        More
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-card class="ion-activatable ripple-parent">
+    <img src="https://images.pexels.com/photos/466685/pexels-photo-466685.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+    <ion-card-header>
+      <ion-row>
+        <ion-col>
+          <ion-card-subtitle>2021.03.09</ion-card-subtitle>
+          <ion-card-title><strong>São Paulo, Brasil</strong></ion-card-title>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-row>
+            <ion-avatar class="small">
+              <img src="https://randomuser.me/api/portraits/women/46.jpg" />
+            </ion-avatar>
+            <ion-avatar class="small ion-margin-start">
+              <img src="https://randomuser.me/api/portraits/women/45.jpg" />
+            </ion-avatar>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-card>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col size="auto">
+      <h2>City</h2>
+    </ion-col>
+      <ion-col size="auto">
+        <ion-badge>
+          Hot
+        </ion-badge>
+      </ion-col>
+      <ion-col size="auto" class="ml-auto">
+        <ion-button fill="clear" color="medium">
+          More
+        </ion-button>
+      </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col class="image-card ion-activatable ripple-parent">
+      <img src="https://images.pexels.com/photos/2048865/pexels-photo-2048865.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+      <p>Turkey</p>
+      <ion-ripple-effect></ion-ripple-effect>
+    </ion-col>
+    <ion-col class="image-card ion-activatable ripple-parent">
+      <img src="https://images.pexels.com/photos/1119972/pexels-photo-1119972.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+      <p>Germany</p>
+      <ion-ripple-effect></ion-ripple-effect>
+    </ion-col>
+    <ion-col class="image-card ion-activatable ripple-parent">
+      <img src="https://images.pexels.com/photos/1071188/pexels-photo-1071188.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+      <p>Poland</p>
+      <ion-ripple-effect></ion-ripple-effect>
+    </ion-col>
+  </ion-row>
+
+  <h2>Master</h2>
+
+  <ion-row>
+    <ion-col size="auto">
+      <ion-avatar class="medium">
+        <img src="https://randomuser.me/api/portraits/women/47.jpg" />
+      </ion-avatar>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-avatar class="medium">
+        <img src="https://randomuser.me/api/portraits/women/48.jpg" />
+      </ion-avatar>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-avatar class="medium">
+        <img src="https://randomuser.me/api/portraits/women/49.jpg" />
+      </ion-avatar>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-avatar class="medium">
+        <img src="https://randomuser.me/api/portraits/women/50.jpg" />
+      </ion-avatar>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-button fill="clear">
+        Join them.
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>
