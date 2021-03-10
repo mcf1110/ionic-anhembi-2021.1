@@ -1,0 +1,42 @@
+h2{
+    font-size: 14pt;
+    margin: 0;
+}
+
+.ml-auto{
+    margin-left: auto;
+}
+
+.daily-scenary-card {
+    & > img{
+        height: 130px;
+        width: 100%;
+        object-fit: cover;
+    }
+    ion-avatar{
+        width: 35px;
+        height: 35px;
+        margin-left: auto;
+    
+        & + ion-avatar{
+            margin-left: 5px;
+        }
+    }
+}
+
+.city-cards{
+    img {
+        border-radius: 5px;
+    }
+
+    p {
+        margin-top: -2em;
+        color: white;
+    }
+}
+
+.avatar-medium{
+    width: 45px;
+    height: 45px;
+    margin-right: 5px;
+}
