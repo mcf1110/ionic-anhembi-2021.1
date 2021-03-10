@@ -25,13 +25,24 @@ h2{
 }
 
 .city-cards{
-    img {
+    div{
+        position: relative;
+        height: 0;
+        padding-top: 100%;
+        background-size: cover;
         border-radius: 5px;
+        box-shadow: 0px 1px .25em rgba(0,0,0, .4);
     }
-
-    p {
-        margin-top: -2em;
+    p{
+        margin: 0;
+        position: absolute;
+        bottom: 1em;
+        left: 0;
         color: white;
+        background: rgba(0,0,0, .6);
+        padding: .25em .5em;
+        font-size: 10pt;
+        border-radius: 2px;
     }
 }
 
@@ -40,3 +51,8 @@ h2{
     height: 45px;
     margin-right: 5px;
 }
+
+.ripple-parent {
+    position: relative;
+    overflow: hidden;
+  }
