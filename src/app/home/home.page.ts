@@ -11,7 +11,7 @@ export class HomePage {
   public maxCounter = 0;
   public selectedValue = 0;
 
-  public increment(){
+  public increment() {
     this.counter += this.selectedValue;
     this.selectedValue = 0;
     this.maxCounter = Math.max(this.counter, this.maxCounter);
@@ -20,15 +20,15 @@ export class HomePage {
     // }
   }
 
-  public decrement(){
-    this.counter = Math.max(this.counter-this.selectedValue, 0);
+  public decrement() {
+    this.counter = Math.max(this.counter - this.selectedValue, 0);
     this.selectedValue = 0;
     // if(this.counter < 0){
     //   this.counter--;
     // }
   }
 
-  public reset(){
+  public reset() {
     this.counter = 0;
   }
 
