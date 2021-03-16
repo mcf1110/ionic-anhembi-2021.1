@@ -7,4 +7,28 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let delivery of deliveries">
+      <ion-icon slot="end" [name]="delivery.sedex ? 'airplane' : 'bicycle'"></ion-icon>
+      <!-- <ion-icon slot="end" name="airplane" *ngIf="delivery.sedex; else bicicleta"></ion-icon>
+      <ng-template #bicicleta>
+        <ion-icon slot="end" name="bicycle"></ion-icon>
+      </ng-template> -->
+      <ion-label>
+        <h2>{{delivery.name}}</h2>
+        <ion-text color="danger" *ngIf="delivery.daysSinceBought > delivery.estimatedDaysToDeliver">
+          <p>
+            O pedido está atrasado!!
+          </p>
+        </ion-text>
+        <div [ngSwitch]="delivery.status">
+          <p *ngSwitchCase="'preparing'"> Preparando pedido. </p>
+          <p *ngSwitchCase="'onRoute'"> Pedido a caminho </p>
+          <p *ngSwitchCase="'delivered'"> Pedido entregue </p>
+          <p *ngSwitchCase="'finished'"> Pedido finalizado </p>
+          <p *ngSwitchDefault> O que aconteceu??? </p>
+        </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
