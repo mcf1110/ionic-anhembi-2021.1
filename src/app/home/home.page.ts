@@ -1,12 +1,27 @@
 import { Component } from '@angular/core';
 
+interface UnitToBit {
+  bit: number;
+  byte: number;
+  kilobit: number;
+  kilobyte: number;
+  megabit: number;
+  megabyte: number;
+  gigabit: number;
+  gigabyte: number;
+  terabit: number;
+  terabyte: number;
+}
+
+type ConvertionType = '' | keyof UnitToBit;
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  private unitToBit = {
+  private unitToBit: UnitToBit = {
     'bit': 1,
     'byte': 8,
     'kilobit': 1024 ** 2,
@@ -20,10 +35,10 @@ export class HomePage {
   }
 
   public input = 0;
-  public inputType = "";
+  public inputType: ConvertionType = "";
 
   public output = 0;
-  public outputType = "";
+  public outputType: ConvertionType = "";
 
   private calculateOutput() {
     return this.input * this.unitToBit[this.inputType] / this.unitToBit[this.outputType];
