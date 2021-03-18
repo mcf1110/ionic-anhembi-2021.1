@@ -1,10 +1,30 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      My Todo List
     </ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="light">
+    <ion-input type="text" placeholder="Add Todo" [(ngModel)]="newTaskName"></ion-input>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="addTask()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content>
+  <ion-list *ngIf="tasks.length > 0; else noTasks">
+    <ion-item *ngFor="let task of tasks">
+      <ion-label>{{task.name}}</ion-label>
+      <ion-checkbox [(ngModel)]="task.done" slot="start"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  <ng-template #noTasks>
+    <ion-text color="medium" class="ion-text-center">
+      <p>Use the input above to add a new Todo</p>
+    </ion-text>
+  </ng-template>
 </ion-content>
