@@ -1,10 +1,130 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      Travel Guide
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" color="light">
+  <h1>Hi Mike, <br> Where do you want to go?</h1>
+
+  <ion-searchbar placeholder="Input Destination" searchIcon="location"></ion-searchbar>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col size="auto">
+      <h2 class="ion-no-margin">Daily Scenary</h2>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-text color="primary">
+        <small>Updated</small>
+      </ion-text>
+    </ion-col>
+    <ion-col size="auto" class="ml-auto">
+      <ion-button fill="clear" color="medium">
+        More
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-card>
+    <img class="daily-scenary-cover-image"
+      src="https://images.pexels.com/photos/72479/pexels-photo-72479.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" />
+    <ion-card-header>
+      <ion-row>
+        <ion-col size="auto">
+          <ion-card-subtitle>18/03/2021</ion-card-subtitle>
+          <ion-card-title>São Paulo, Brazil</ion-card-title>
+        </ion-col>
+        <ion-col size="auto" class="ml-auto">
+          <ion-row>
+            <ion-avatar class="daily-scenary-avatar">
+              <img src="https://randomuser.me/api/portraits/women/83.jpg">
+            </ion-avatar>
+            <ion-avatar class="daily-scenary-avatar">
+              <img src="https://randomuser.me/api/portraits/women/84.jpg">
+            </ion-avatar>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col size="auto">
+      <h2 class="ion-no-margin">City</h2>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-badge color="primary">
+        Hot
+      </ion-badge>
+    </ion-col>
+    <ion-col size="auto" class="ml-auto">
+      <ion-button fill="clear" color="medium">
+        More
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="4">
+      <ion-card class="ion-no-margin">
+        <img
+          src="https://images.pexels.com/photos/2048865/pexels-photo-2048865.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+          alt="">
+        <ion-card-header>
+          <ion-card-title>Turkey</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+    <ion-col size="4">
+      <ion-card class="ion-no-margin">
+        <img
+          src="https://images.pexels.com/photos/756688/pexels-photo-756688.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+          alt="">
+        <ion-card-header>
+          <ion-card-title>Germany</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+    <ion-col size="4">
+      <ion-card class="ion-no-margin">
+        <img src="https://images.pexels.com/photos/59601/pexels-photo-59601.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+          alt="">
+        <ion-card-header>
+          <ion-card-title>Poland</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <h2>Master</h2>
+
+  <ion-row>
+    <ion-col size="auto">
+      <ion-avatar class="master-avatar">
+        <img src="https://randomuser.me/api/portraits/women/42.jpg" />
+      </ion-avatar>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-avatar class="master-avatar">
+        <img src="https://randomuser.me/api/portraits/women/43.jpg" />
+      </ion-avatar>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-avatar class="master-avatar">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" />
+      </ion-avatar>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-avatar class="master-avatar">
+        <img src="https://randomuser.me/api/portraits/women/45.jpg" />
+      </ion-avatar>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-button fill="clear" color="primary">
+        Join them.
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>
