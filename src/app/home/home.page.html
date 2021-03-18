@@ -1,10 +1,32 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      Deliveries
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let delivery of deliveries">
+      <ion-label>
+        <h2>{{delivery.name}}</h2>
+        <div [ngSwitch]="delivery.status">
+          <p *ngSwitchCase="'preparing'"> Preparando pedido </p>
+          <p *ngSwitchCase="'onRoute'"> Pedido a caminho </p>
+          <p *ngSwitchCase="'delivered'"> Pedido entregue </p>
+          <p *ngSwitchCase="'finished'"> Pedido finalizado </p>
+          <p *ngSwitchDefault> O que aconteceu??? </p>
+        </div>
+        <ion-text color="danger" *ngIf="delivery.daysSinceBought > delivery.estimatedDaysToDeliver">
+          <p>Sua entrega está atrasada</p>
+        </ion-text>
+      </ion-label>
+      <!-- <ion-icon slot="end" [name]="delivery.fastDelivery ? 'airplane' : 'bicycle'"></ion-icon> -->
+      <ion-icon slot="end" name="airplane" *ngIf="delivery.fastDelivery; else bike"></ion-icon>
+      <ng-template #bike>
+        <ion-icon slot="end" name="bicycle"></ion-icon>
+      </ng-template>
+    </ion-item>
+  </ion-list>
 </ion-content>
