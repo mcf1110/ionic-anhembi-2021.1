@@ -1,35 +1,39 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      AnhembiBank
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding ion-text-center">
-  <h1 class="counter">{{counter}}</h1>
-  <h2>Valor máximo {{maxCounter}}</h2>
+  <h1 class="counter">{{counter | currency}}</h1>
 
   <ion-row class="ion-justify-content-center">
     <ion-col size="auto">
-      <ion-button (click)="decrement()" color="danger">
-        <ion-icon slot="icon-only" name="remove"></ion-icon>
-      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col>
+      <ion-item>
+        <ion-label position="floating">Valor a ser depositado</ion-label>
+        <ion-input type="number" [(ngModel)]="selectedValue"></ion-input>
+      </ion-item>
     </ion-col>
     <ion-col size="auto">
-      <ion-button (click)="reset()" color="success">
-        <ion-icon slot="icon-only" name="refresh"></ion-icon>
-      </ion-button>
-    </ion-col>
-    <ion-col size="auto">
-      <ion-button (click)="increment()">
-        <ion-icon slot="icon-only" name="add"></ion-icon>
+      <ion-button (click)="deposit()">
+        <ion-icon slot="icon-only" name="cash"></ion-icon>
       </ion-button>
     </ion-col>
   </ion-row>
 
-  <ion-item>
-    <ion-label position="floating">Valor a ser depositado</ion-label>
-    <ion-input type="number" [(ngModel)]="selectedValue"></ion-input>
-  </ion-item>
+  <ion-list>
+    <ion-item *ngFor="let transaction of transactions">
+      <ion-label>
+        <h2>{{transaction.amount | currency}}</h2>
+        <p>{{transaction.date | date:'short'}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

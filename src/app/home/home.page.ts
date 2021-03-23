@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 
+interface Transaction {
+  date: Date;
+  amount: number;
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -8,28 +13,16 @@ import { Component } from '@angular/core';
 export class HomePage {
 
   public counter = 0;
-  public maxCounter = 0;
   public selectedValue = 0;
+  public transactions: Transaction[] = [];
 
-  public increment() {
+  public deposit() {
     this.counter += this.selectedValue;
+    this.transactions.unshift({
+      amount: this.selectedValue,
+      date: new Date()
+    })
     this.selectedValue = 0;
-    this.maxCounter = Math.max(this.counter, this.maxCounter);
-    // if(this.counter > this.maxCounter){
-    //   this.maxCounter = this.counter;
-    // }
-  }
-
-  public decrement() {
-    this.counter = Math.max(this.counter - this.selectedValue, 0);
-    this.selectedValue = 0;
-    // if(this.counter < 0){
-    //   this.counter--;
-    // }
-  }
-
-  public reset() {
-    this.counter = 0;
   }
 
 }
