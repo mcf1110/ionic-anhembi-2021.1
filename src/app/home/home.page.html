@@ -27,6 +27,10 @@
       </ion-button>
     </ion-col>
   </ion-row>
+  <ion-button (click)="confirmWipe()" expand="block" color="danger">
+    <ion-icon slot="start" name="trash-bin"></ion-icon>
+    Sacar Tudo
+  </ion-button>
 
   <ion-list>
     <ion-item *ngFor="let transaction of transactions">
