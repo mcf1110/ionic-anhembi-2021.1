@@ -1,9 +1,5 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>
-      My Todo List
-    </ion-title>
-  </ion-toolbar>
+  <ion-progress-bar [value]="completedTaskPercentage"></ion-progress-bar>
   <ion-toolbar color="light">
     <ion-input type="text" placeholder="Add Todo" [(ngModel)]="newTaskName"></ion-input>
 
@@ -13,13 +9,34 @@
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="currentFilter" (ionChange)="updateFilter()">
+      <ion-segment-button value="all">
+        <ion-label>All</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="todo">
+        <ion-label>To Do</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="done">
+        <ion-label>Done</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-searchbar placeholder="Filter Todos" [(ngModel)]="currentSearch" (ionChange)="updateFilter()"></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list *ngIf="tasks.length > 0; else noTasks">
-    <ion-item *ngFor="let task of tasks">
+  <ion-list *ngIf="filteredTasks.length > 0; else noTasks">
+    <ion-item *ngFor="let task of filteredTasks">
+      <ion-checkbox [(ngModel)]="task.done" slot="start" (ionChange)="computeCompletedTaskPercentage()"></ion-checkbox>
       <ion-label>{{task.name}}</ion-label>
-      <ion-checkbox [(ngModel)]="task.done" slot="start"></ion-checkbox>
+      <ion-button fill="clear" slot="end" color="danger" (click)="removeTask(task)">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
     </ion-item>
   </ion-list>
   <ng-template #noTasks>
