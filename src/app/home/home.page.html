@@ -1,10 +1,26 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      Meu Contador
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding ion-text-center">
+  <h1 class="counter">{{currentValue}}</h1>
+  <h2 class="ion-no-margin">
+    <ion-text color="medium"><small>Valor máximo: {{maxValue}}</small></ion-text>
+  </h2>
+
+  <div>
+    <ion-button color="danger" (click)="decrement()" [disabled]="currentValue <= 0">
+      <ion-icon slot="icon-only" name="remove"></ion-icon>
+    </ion-button>
+    <ion-button color="warning" (click)="reset()" [disabled]="currentValue <= 0">
+      <ion-icon slot="icon-only" name="refresh"></ion-icon>
+    </ion-button>
+    <ion-button (click)="increment()">
+      <ion-icon slot="icon-only" name="add"></ion-icon>
+    </ion-button>
+  </div>
 </ion-content>
