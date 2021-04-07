@@ -1,10 +1,47 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Quiz
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+
+
+  <ion-card *ngIf="currentQuestion < questions.length; else resultCard">
+    <ion-card-header>
+      <ion-card-title>{{questions[currentQuestion].text}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-radio-group [(ngModel)]="selectedAnswer">
+          <ion-item *ngFor="let answer of questions[currentQuestion].answers; let i = index;">
+            <ion-radio slot="start" [value]="i"></ion-radio>
+            <ion-label>{{answer}}</ion-label>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+
+      <ion-button (click)="nextQuestion()" expand="block" [disabled]="selectedAnswer === null">
+        Próxima
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ng-template #resultCard>
+    <ion-card>
+      <img [src]="results[resultIndex].img" [alt]="results[resultIndex].name">
+      <ion-card-header>
+        <ion-card-title>Você deveria jogar {{results[resultIndex].name}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{results[resultIndex].description}}</p>
+
+        <ion-button (click)="confirmReset()" expand="block">
+          Fazer de novo
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
 </ion-content>
