@@ -1,0 +1,29 @@
+ion-toolbar ion-title img {
+    height: 2em;
+    display: block;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+ion-slide {
+    width: 64px;
+    margin: 0.25em;
+
+    ion-avatar {
+        border: 3px solid orange;
+    }
+}
+
+.comment-avatar {
+    width: 24px;
+    height: 24px;
+    border: 2px solid white;
+    z-index: 5;
+}
+
+.comment-avatar + .comment-avatar {
+    margin-left: -10px;
+    z-index: 1;
+}

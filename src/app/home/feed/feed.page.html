@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/200px-Instagram_logo.svg.png"
+        alt="">
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="paper-plane-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-top">
+  <ion-slides [options]="{freeMode: true, slidesPerView: 'auto'}">
+    <ion-slide *ngFor="let i of [0,1,2,3,4,5,6,7,8,9]">
+      <ion-avatar>
+        <ion-img [src]="'https://randomuser.me/api/portraits/women/'+i+'.jpg'"></ion-img>
+      </ion-avatar>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-card *ngFor="let i of [0,1,2,3,4,5,6,7,8,9]">
+    <ion-img [src]="'https://picsum.photos/id/'+(100 +i*9)+'/400/400'" alt=""></ion-img>
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="auto">
+          <ion-button size="small" color="dark" fill="clear">
+            <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button size="small" color="dark" fill="clear">
+            <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button size="small" color="dark" fill="clear">
+            <ion-icon slot="icon-only" name="paper-plane-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="auto" class="ml-auto">
+          <ion-button size="small" color="dark" fill="clear">
+            <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="auto">
+          <ion-row>
+            <ion-avatar *ngFor="let j of [0,1]" class="comment-avatar">
+              <img [src]="'https://randomuser.me/api/portraits/women/'+(5+10*i+j)+'.jpg'" />
+            </ion-avatar>
+          </ion-row>
+        </ion-col>
+        <ion-col>
+          Curtido por <strong>fulanodetal</strong> e <strong>outras pessoas</strong>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-text color="dark">
+          <p><strong>fulanodetal</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus enim
+            consequuntur nam illum</p>
+        </ion-text>
+        <p>Ver todos os {{4+i*17}} comentários</p>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

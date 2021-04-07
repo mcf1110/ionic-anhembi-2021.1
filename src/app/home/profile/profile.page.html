@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>isabella123</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-menu-button menu="first"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="main">
+
+  <ion-row class="ion-align-items-center">
+    <ion-col size="auto">
+      <ion-avatar class="ion-margin">
+        <img src="https://randomuser.me/api/portraits/women/43.jpg" />
+      </ion-avatar>
+    </ion-col>
+    <ion-col class="stat-column">
+      <h2><span>56</span> <br> publicações</h2>
+    </ion-col>
+    <ion-col class="stat-column">
+      <h2><span>900</span> <br> seguidores</h2>
+    </ion-col>
+    <ion-col class="stat-column">
+      <h2><span>700</span> <br> seguindo</h2>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-margin bio">
+    <h3><strong>Isabella</strong></h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab saepe soluta laborum. Ullam suscipit vero cumque</p>
+  </ion-row>
+
+  <ion-row>
+    <ion-col class="profile-photo" size="4" *ngFor="let i of [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">
+      <img [src]="'https://picsum.photos/id/'+(25+2*i)+'/400/400'" alt="">
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+
+<ion-menu side="end" menuId="first" contentId="main">
+  <ion-content>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>isabella123</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-list lines="none">
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>

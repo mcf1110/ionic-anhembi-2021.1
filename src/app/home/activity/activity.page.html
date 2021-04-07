@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Atividade</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="none">
+    <ion-list-header>
+      <ion-label>Esta semana</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let i of [0,1,2,3]">
+      <ion-avatar slot="start">
+        <ion-img [src]="'https://randomuser.me/api/portraits/men/'+(i*7)+'.jpg'"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        <small>
+          <strong>ciclanodetal_{{123*i}}
+          </strong> começou a seguir você
+        </small>
+      </ion-label>
+    </ion-item>
+    <ion-list-header>
+      <ion-label>Este mês</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let i of [4,5,6]">
+      <ion-avatar slot="start">
+        <ion-img [src]="'https://randomuser.me/api/portraits/men/'+(i*7)+'.jpg'"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        <small>
+          <strong>ciclanodetal_{{123*i}}
+          </strong> que você talvez conheça, está no Instagram
+        </small>
+      </ion-label>
+      <ion-button slot="end" size="small">
+        Seguir
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

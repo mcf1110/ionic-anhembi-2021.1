@@ -1,0 +1,25 @@
+.stat-column {
+    h2 {
+        font-size: 1em;
+        span {
+            font-weight: bold;
+            font-size: 1.25em;
+        }
+        text-align: center;
+    }
+}
+
+.bio {
+    h3 {
+        font-size: 1em;
+        margin: 0;
+    }
+    p {
+        margin: 0;
+    }
+}
+
+.profile-photo {
+    margin-bottom: -4px;
+    padding: 1px;
+}
