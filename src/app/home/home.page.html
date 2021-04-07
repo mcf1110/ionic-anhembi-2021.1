@@ -1,34 +1,46 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Contador
+      AnhembiBank
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding ion-text-center">
-  <h1>{{currentValue}}</h1>
-  <h2>Valor máximo: {{maxValue}}</h2>
+<ion-content class="ion-padding ion-text-center" color="primary">
+  <ion-card>
+    <ion-card-content>
+      <ion-text color="primary">
+        <h1 class="ion-margin-top">R{{currentValue|currency}}</h1>
+      </ion-text>
+      <h2>Valor máximo: R{{maxValue | currency}}</h2>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="auto">
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-align-items-end">
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Valor</ion-label>
+            <ion-input type="number" [(ngModel)]="selectedValue"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button (click)="increment()" fill="clear" color="primary">
+            <ion-icon slot="icon-only" name="cash-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
 
-  <ion-row class="ion-justify-content-center">
-    <ion-col size="auto">
-      <ion-button (click)="decrement()" color="danger">
-        <ion-icon slot="icon-only" name="remove"></ion-icon>
-      </ion-button>
-    </ion-col>
-    <ion-col size="auto">
-      <ion-button (click)="reset()" color="success">
-        <ion-icon slot="icon-only" name="refresh"></ion-icon>
-      </ion-button>
-    </ion-col>
-    <ion-col size="auto">
-      <ion-button (click)="increment()">
-        <ion-icon slot="icon-only" name="add"></ion-icon>
-      </ion-button>
-    </ion-col>
-  </ion-row>
-  <ion-item>
-    <ion-label position="floating">Valor</ion-label>
-    <ion-input type="number" [(ngModel)]="selectedValue"></ion-input>
-  </ion-item>
+  <ion-list class="ion-no-padding ion-margin-top">
+    <ion-item color="primary" *ngFor="let transaction of transactions">
+      <ion-label>
+        <ion-row>
+          <ion-col>R{{transaction.value | currency}}</ion-col>
+          <ion-col size="auto">{{transaction.date | date:'short'}}</ion-col>
+        </ion-row>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
