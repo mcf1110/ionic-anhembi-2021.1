@@ -7,25 +7,37 @@
 </ion-header>
 
 <ion-content class="ion-padding ion-text-center">
-  <h1 class="counter">{{currentValue}}</h1>
-  <h2 class="ion-no-margin">
-    <ion-text color="medium"><small>Valor máximo: {{maxValue}}</small></ion-text>
-  </h2>
+  <h1 class="counter">{{currentValue | currency:'BRL'}}</h1>
 
   <div>
-    <ion-button color="danger" (click)="decrement()" [disabled]="currentValue <= 0">
-      <ion-icon slot="icon-only" name="remove"></ion-icon>
-    </ion-button>
-    <ion-button color="warning" (click)="reset()" [disabled]="currentValue <= 0">
-      <ion-icon slot="icon-only" name="refresh"></ion-icon>
-    </ion-button>
-    <ion-button (click)="increment()">
-      <ion-icon slot="icon-only" name="add"></ion-icon>
-    </ion-button>
   </div>
 
-  <ion-item>
-    <ion-label position="floating">Valor</ion-label>
-    <ion-input type="number" [(ngModel)]="selectedCash"></ion-input>
-  </ion-item>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label position="floating">Valor</ion-label>
+        <ion-input type="number" [(ngModel)]="selectedCash"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-button (click)="increment()" fill="clear">
+        <ion-icon slot="icon-only" name="cash"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-list>
+    <ion-item *ngFor="let transaction of transactions">
+      <ion-label>
+        <ion-row>
+          <ion-col>
+            {{transaction.value | currency:'BRL'}}
+          </ion-col>
+          <ion-col size="auto">
+            {{transaction.date | date:'short'}}
+          </ion-col>
+        </ion-row>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
