@@ -1,0 +1,19 @@
+.profile-header {
+    ion-avatar {
+        width: 80px;
+        height: 80px;
+        margin: auto;
+    }
+    p {
+        margin: 0;
+    }
+}
+
+.profile-pics {
+    ion-col {
+        padding: 1px;
+        img {
+            margin-bottom: -4px;
+        }
+    }
+}

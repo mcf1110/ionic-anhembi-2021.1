@@ -1,0 +1,37 @@
+ion-title img {
+    height: 2em;
+}
+
+ion-slide {
+    width: 64px;
+    margin: 0.25em;
+
+    ion-avatar {
+        border: 3px solid orange;
+    }
+}
+
+.post-card {
+    ion-avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .like-count {
+        ion-avatar {
+            width: 24px;
+            height: 24px;
+            border: 2px solid white;
+            z-index: 5;
+        }
+
+        ion-avatar + ion-avatar {
+            margin-left: -12px;
+            z-index: 4;
+        }
+    }
+}
+
+.ml-auto {
+    margin-left: auto;
+}

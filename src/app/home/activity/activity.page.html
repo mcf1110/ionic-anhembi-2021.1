@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Atividade</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Esta semana</ion-label>
+    </ion-list-header>
+
+    <ion-item *ngFor="let i of [0,1,2,3]">
+      <ion-avatar slot="start">
+        <img [src]="'https://randomuser.me/api/portraits/women/'+(42+i)+'.jpg'">
+      </ion-avatar>
+      <ion-label>
+        <strong>naoseiquem</strong> começou a seguir você
+      </ion-label>
+    </ion-item>
+
+
+    <ion-list-header>
+      <ion-label>Este mês</ion-label>
+    </ion-list-header>
+
+    <ion-item *ngFor="let i of [0,1,2,3,5,6]">
+      <ion-avatar slot="start">
+        <img [src]="'https://randomuser.me/api/portraits/women/'+(47+i)+'.jpg'">
+      </ion-avatar>
+      <ion-label>
+        <strong>naoseiquem</strong> começou a seguir você
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
