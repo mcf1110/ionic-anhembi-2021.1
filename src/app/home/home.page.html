@@ -16,17 +16,40 @@
     </ion-buttons>
 
   </ion-toolbar>
+  <ion-progress-bar [value]="progress"></ion-progress-bar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="selectedFilter" (ionChange)="updateFilter()">
+      <ion-segment-button value="all">
+        <ion-label>All</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="todo">
+        <ion-label>Todo</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="done">
+        <ion-label>Done</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let task of tasks">
+  <ion-list *ngIf="filteredTasks.length > 0; else empty">
+    <ion-item *ngFor="let task of filteredTasks">
       <ion-label>{{task.name}}</ion-label>
-      <ion-checkbox slot="start" [(ngModel)]="task.done"></ion-checkbox>
+      <ion-checkbox slot="start" [(ngModel)]="task.done" (ionChange)="calculateProgress()"></ion-checkbox>
+
+      <ion-button slot="end" fill="clear" color="danger" (click)="removeTask(task)">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
     </ion-item>
   </ion-list>
 
-  <pre>tasks: {{tasks | json}}</pre>
-  <pre>newTaskName: {{newTaskName | json}}</pre>
-
+  <ng-template #empty>
+    <ion-text color="medium" class="ion-text-center">
+      <h1 style="font-size: 2em;">
+        <ion-icon name="sad"></ion-icon>
+      </h1>
+      <p class="ion-no-margin">You don't have any tasks in this category!</p>
+    </ion-text>
+  </ng-template>
 </ion-content>

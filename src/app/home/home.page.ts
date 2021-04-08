@@ -13,7 +13,11 @@ interface Task {
 export class HomePage {
 
   public tasks: Task[] = [];
+  public filteredTasks: Task[] = this.tasks;
+
   public newTaskName = '';
+  public progress = 0;
+  public selectedFilter: 'all' | 'done' | 'todo' = 'all';
 
   constructor() { }
 
@@ -26,6 +30,30 @@ export class HomePage {
       done: false
     })
     this.newTaskName = '';
+
+    this.calculateProgress();
+    this.updateFilter();
+  }
+
+  public calculateProgress() {
+    this.progress = this.tasks.filter(t => t.done).length / this.tasks.length
+  }
+
+  public removeTask(toRemove: Task) {
+    const index = this.tasks.indexOf(toRemove)
+    this.tasks.splice(index, 1);
+
+    this.updateFilter();
+  }
+
+  public updateFilter() {
+    if (this.selectedFilter === 'all') {
+      this.filteredTasks = this.tasks;
+    } else if (this.selectedFilter === 'done') {
+      this.filteredTasks = this.tasks.filter(t => t.done);
+    } else {
+      this.filteredTasks = this.tasks.filter(t => !t.done);
+    }
   }
 
 }
