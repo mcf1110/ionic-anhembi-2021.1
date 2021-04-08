@@ -16,7 +16,7 @@
     <ion-button color="danger" (click)="decrement()" [disabled]="currentValue <= 0">
       <ion-icon slot="icon-only" name="remove"></ion-icon>
     </ion-button>
-    <ion-button color="warning" (click)="reset()" [disabled]="currentValue <= 0">
+    <ion-button color="warning" (click)="confirmReset()" [disabled]="currentValue <= 0">
       <ion-icon slot="icon-only" name="refresh"></ion-icon>
     </ion-button>
     <ion-button (click)="increment()">

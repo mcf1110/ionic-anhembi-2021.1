@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomePage {
   public maxValue = 0;
   public selectedCash = 0;
 
-  constructor() { }
+  constructor(private alertController: AlertController) { }
 
   public increment() {
     this.currentValue += this.selectedCash;
@@ -23,7 +24,22 @@ export class HomePage {
     this.selectedCash = 0;
   }
 
-  public reset() {
+  public async confirmReset() {
+    const alert = await this.alertController.create({
+      header: 'Tem certeza?',
+      message: 'Seu saldo será resetado',
+      buttons: [
+        {
+          text: 'Resetar',
+          handler: () => this.reset()
+        },
+        'Cancelar'
+      ]
+    })
+    alert.present()
+  }
+
+  private reset() {
     this.currentValue = 0;
   }
 
