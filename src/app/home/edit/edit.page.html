@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editando {{product.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-product-form [product]="product" (formSubmitted)="salvarDados()"></app-product-form>
+</ion-content>

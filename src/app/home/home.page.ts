@@ -7,6 +7,24 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  public products = [
+    {
+      id: 1,
+      name: 'TV',
+      price: 50
+    },
+    {
+      id: 2,
+      name: 'Sofa',
+      price: 40
+    },
+    {
+      id: 3,
+      name: 'Caneca',
+      price: 10
+    }
+  ];
+
+  constructor() { }
 
 }

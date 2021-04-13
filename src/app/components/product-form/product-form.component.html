@@ -1,0 +1,11 @@
+<ion-item>
+  <ion-label position="floating">Nome</ion-label>
+  <ion-input type="text" [(ngModel)]="product.name"> </ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">Preço</ion-label>
+  <ion-input type="number" [(ngModel)]="product.price"> </ion-input>
+</ion-item>
+<ion-button (click)="sendEvent()" expand="block">
+  <ion-icon slot="start" name="save"></ion-icon> Enviar
+</ion-button>
