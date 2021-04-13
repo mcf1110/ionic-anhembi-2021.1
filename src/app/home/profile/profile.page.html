@@ -45,7 +45,7 @@
 
   <ion-row>
     <ion-col class="profile-photo" [size]="12/nCols" *ngFor="let i of [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">
-      <img [src]="'https://picsum.photos/id/'+(25+2*i)+'/400/400'" alt="">
+      <img [routerLink]="['photo', i]" [src]="'https://picsum.photos/id/'+(25+2*i)+'/400/400'" alt="">
     </ion-col>
   </ion-row>
 

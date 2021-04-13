@@ -26,51 +26,6 @@
     </ion-slide>
   </ion-slides>
 
-  <ion-card *ngFor="let post of posts">
-    <ion-img [src]="post.url" alt=""></ion-img>
-    <ion-card-content>
-      <ion-row>
-        <ion-col size="auto">
-          <ion-button size="small" [color]="post.liked ? 'danger' : 'dark'" fill="clear" (click)="likePhoto(post)">
-            <ion-icon slot="icon-only" [name]="post.liked ? 'heart' : 'heart-outline'"></ion-icon>
-          </ion-button>
-        </ion-col>
-        <ion-col size="auto">
-          <ion-button size="small" color="dark" fill="clear">
-            <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
-          </ion-button>
-        </ion-col>
-        <ion-col size="auto">
-          <ion-button size="small" color="dark" fill="clear">
-            <ion-icon slot="icon-only" name="paper-plane-outline"></ion-icon>
-          </ion-button>
-        </ion-col>
-        <ion-col size="auto" class="ml-auto">
-          <ion-button size="small" color="dark" fill="clear">
-            <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="auto">
-          <ion-row>
-            <ion-avatar *ngFor="let j of [0,1]" class="comment-avatar">
-              <img [src]="'https://randomuser.me/api/portraits/women/'+(5+10*post.i+j)+'.jpg'" />
-            </ion-avatar>
-          </ion-row>
-        </ion-col>
-        <ion-col>
-          Curtido por <strong>fulanodetal</strong> e <strong>outras pessoas</strong>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-text color="dark">
-          <p><strong>fulanodetal</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus enim
-            consequuntur nam illum</p>
-        </ion-text>
-        <p>Ver todos os {{4+i*17}} comentários</p>
-      </ion-row>
-    </ion-card-content>
-  </ion-card>
+  <app-photo-card *ngFor="let post of posts" [id]="post.i"></app-photo-card>
 
 </ion-content>

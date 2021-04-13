@@ -1,0 +1,46 @@
+<ion-card>
+  <ion-img [src]="'https://picsum.photos/id/'+ (id + 50) + '/400/400'" alt=""></ion-img>
+  <ion-card-content>
+    <ion-row>
+      <ion-col size="auto">
+        <ion-button size="small" color="dark" fill="clear">
+          <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-button size="small" color="dark" fill="clear">
+          <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-button size="small" color="dark" fill="clear">
+          <ion-icon slot="icon-only" name="paper-plane-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="auto" class="ml-auto">
+        <ion-button size="small" color="dark" fill="clear">
+          <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="auto">
+        <ion-row>
+          <ion-avatar *ngFor="let j of [0,1]" class="comment-avatar">
+            <img [src]="'https://randomuser.me/api/portraits/women/'+(5+10*id+j)+'.jpg'" />
+          </ion-avatar>
+        </ion-row>
+      </ion-col>
+      <ion-col>
+        Curtido por <strong>fulanodetal</strong> e <strong>outras pessoas</strong>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-text color="dark">
+        <p><strong>fulanodetal</strong> ipsum dolor sit amet consectetur adipisicing elit. Ducimus enim
+          consequuntur nam illum</p>
+      </ion-text>
+      <p>Ver todos os {{4+id*17}} comentários</p>
+    </ion-row>
+  </ion-card-content>
+</ion-card>
