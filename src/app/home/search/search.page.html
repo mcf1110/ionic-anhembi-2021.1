@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Pesquisar"></ion-searchbar>
+  </ion-toolbar>
+  <ion-segment value="top">
+    <ion-segment-button value="top">
+      <ion-label>Top</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="accounts">
+      <ion-label>Contas</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="tags">
+      <ion-label>Tags</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="places">
+      <ion-label>Lugares</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content>
+  <ion-slides [options]="{freeMode: true, slidesPerView: 'auto'}">
+    <ion-slide *ngFor="let i of [0,1,2,3,4,5,6,7,8,9]" class="tag-badge">
+      <ion-badge color="light" activatable>Tag {{i}}</ion-badge>
+    </ion-slide>
+  </ion-slides>
+  <ion-row>
+    <ion-col class="profile-photo" size="4" *ngFor="let i of [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">
+      <img [src]="'https://picsum.photos/id/'+(12+3*i)+'/400/400'" alt="">
+    </ion-col>
+  </ion-row>
+</ion-content>
