@@ -23,16 +23,16 @@
     </ion-slide>
   </ion-slides>
 
-  <ion-card *ngFor="let i of [0,1,2,3,4,5,6,7,8,9]" class="post-card">
+  <ion-card *ngFor="let post of posts" class="post-card">
     <ion-card-header class="ion-no-padding">
       <ion-row class="ion-align-items-center">
         <ion-col size="auto">
           <ion-avatar>
-            <img [src]="'https://randomuser.me/api/portraits/men/'+(i+12)+'.jpg'">
+            <img [src]="'https://randomuser.me/api/portraits/men/'+(post.id)+'.jpg'">
           </ion-avatar>
         </ion-col>
         <ion-col size="auto">
-          <ion-text color="dark"><strong>fulano_de_tal_{{i*123}}</strong></ion-text>
+          <ion-text color="dark"><strong>{{post.author}}</strong></ion-text>
         </ion-col>
         <ion-col size="auto" class="ml-auto">
           <ion-button fill="clear" color="dark" size="small">
@@ -42,13 +42,16 @@
       </ion-row>
     </ion-card-header>
 
-    <img [src]="'https://picsum.photos/id/'+(i+12)+'/400/400'">
+    <div class="feed-photo">
+      <img (click)="toggleLike(post)" [src]="'https://picsum.photos/id/'+post.id+'/400/400'">
+      <ion-icon *ngIf="post.liked && post.dirty" name="heart"></ion-icon>
+    </div>
 
     <ion-card-content class="ion-no-padding">
       <ion-row>
         <ion-col size="auto">
-          <ion-button fill="clear" color="dark" size="small">
-            <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+          <ion-button (click)="toggleLike(post)" [color]="post.liked ? 'danger' : 'dark'" size="small" fill="clear">
+            <ion-icon slot="icon-only" [name]="post.liked ? 'heart' : 'heart-outline'"></ion-icon>
           </ion-button>
         </ion-col>
         <ion-col size="auto">
@@ -71,7 +74,7 @@
         <ion-col size="auto">
           <ion-row>
             <ion-avatar *ngFor="let j of [0,1]">
-              <img [src]="'https://randomuser.me/api/portraits/women/'+(j+i*2)+'.jpg'">
+              <img [src]="'https://randomuser.me/api/portraits/women/'+(j+post.id*2)+'.jpg'">
             </ion-avatar>
           </ion-row>
         </ion-col>

@@ -18,9 +18,13 @@ const routes: Routes = [
       {
         path: 'activity',
         loadChildren: () => import('./activity/activity.module').then(m => m.ActivityPageModule)
-      }
+      },
+      {
+        path: 'search',
+        loadChildren: () => import('./search/search.module').then(m => m.SearchPageModule)
+      },
     ]
-  },
+  }
 ];
 
 @NgModule({

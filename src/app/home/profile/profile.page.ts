@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePage implements OnInit {
 
+  public nCols = 3;
+
   constructor() { }
 
   ngOnInit() {

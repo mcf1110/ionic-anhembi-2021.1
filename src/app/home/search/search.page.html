@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-searchbar color="light" placeholder="Pesquisar" (ionFocus)="setShowSearch(true)"></ion-searchbar>
+
+    <ion-buttons slot="start" *ngIf="showSearch; else qrCode">
+      <ion-button (click)="setShowSearch(false)">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ng-template #qrCode>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon slot="icon-only" name="qr-code"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ng-template>
+  </ion-toolbar>
+
+  <ion-segment value="main" *ngIf="showSearch; else tags">
+    <ion-segment-button value="main">
+      <ion-label>Principais</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="accounts">
+      <ion-label>Contas</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="tags">
+      <ion-label>Tags</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="places">
+      <ion-label>Locais</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <ng-template #tags>
+    <ion-slides [options]="{freeMode: true, slidesPerView: 'auto'}">
+      <ion-slide
+        *ngFor="let tag of ['IGTV', 'Arquitetura', 'Música', 'Estilo', 'Comida', 'Decoração', 'Artes', 'Beleza', 'Faça você mesmo', 'TV e cinema']">
+        <ion-badge color="light">{{tag}}</ion-badge>
+      </ion-slide>
+    </ion-slides>
+  </ng-template>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="showSearch; else explore">
+    <ion-list-header>
+      <ion-label><strong>Recentes</strong></ion-label>
+      <ion-button>Ver tudo</ion-button>
+    </ion-list-header>
+    <ion-item *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12]">
+      <ion-avatar slot="start">
+        <img [src]="'https://randomuser.me/api/portraits/men/'+(i+12)+'.jpg'">
+      </ion-avatar>
+      <ion-label>
+        <h2>fulano_de_tal_{{i}}</h2>
+        <p>Fulano de Tal</p>
+      </ion-label>
+      <ion-button slot="end" fill="clear" size="small" color="medium">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #explore>
+    <ion-row class="profile-pics">
+      <ion-col class="ion-no-padding" size="4" *ngFor="let i of [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
+        <img [src]="'https://picsum.photos/id/'+(42+i*3)+'/400/400'" alt="">
+      </ion-col>
+    </ion-row>
+  </ng-template>
+</ion-content>

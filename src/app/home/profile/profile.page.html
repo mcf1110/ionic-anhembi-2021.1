@@ -46,8 +46,17 @@
     </ion-col>
   </ion-row>
 
-  <ion-row class="profile-pics ion-margin-top">
-    <ion-col class="ion-no-padding" size="4" *ngFor="let i of [0,1,2,3,4,5,6,7,8,9,10,11,12,13]">
+  <ion-segment [(ngModel)]="nCols">
+    <ion-segment-button value="3">
+      <ion-icon name="grid"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="1">
+      <ion-icon name="square"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-row class="profile-pics">
+    <ion-col class="ion-no-padding" [size]="12/nCols" *ngFor="let i of [0,1,2,3,4,5,6,7,8,9,10,11,12,13]">
       <img [src]="'https://picsum.photos/id/'+(42+i*3)+'/400/400'" alt="">
     </ion-col>
   </ion-row>

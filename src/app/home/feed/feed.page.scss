@@ -35,3 +35,40 @@ ion-slide {
 .ml-auto {
     margin-left: auto;
 }
+
+.feed-photo {
+    position: relative;
+    ion-icon {
+        position: absolute;
+        z-index: 500;
+        top: 50%;
+        left: 50%;
+        color: white;
+        font-size: 10em;
+        transform: translate(-50%, -50%);
+        animation: heart-animation 1s forwards ease-in;
+    }
+}
+
+@keyframes heart-animation {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    20% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    40% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    80% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
