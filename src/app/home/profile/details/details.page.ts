@@ -14,37 +14,31 @@ export class DetailsPage implements OnInit {
       author: 'matheus',
       id: 0,
       liked: true,
-      dirty: false
     },
     {
       author: 'laura',
       id: 1,
       liked: false,
-      dirty: false
     },
     {
       author: 'Gustavo',
       id: 2,
       liked: false,
-      dirty: false
     },
     {
       author: 'Luckhaos Baião',
       id: 3,
       liked: true,
-      dirty: false
     },
     {
       author: 'Pedro Dalda',
       id: 4,
       liked: false,
-      dirty: false
 
     }, {
       author: 'Ana Carolina',
       id: 5,
       liked: true,
-      dirty: false
     },
   ];
 
