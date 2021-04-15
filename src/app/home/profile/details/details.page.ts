@@ -55,10 +55,4 @@ export class DetailsPage implements OnInit {
 
   ngOnInit() {
   }
-
-  public toggleLike(post) {
-    post.dirty = true;
-    post.liked = !post.liked;
-  }
-
 }

@@ -1,0 +1,60 @@
+.post-card {
+    ion-avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .like-count {
+        ion-avatar {
+            width: 24px;
+            height: 24px;
+            border: 2px solid white;
+            z-index: 5;
+        }
+
+        ion-avatar + ion-avatar {
+            margin-left: -12px;
+            z-index: 4;
+        }
+    }
+
+    .feed-photo {
+        position: relative;
+        ion-icon {
+            position: absolute;
+            z-index: 500;
+            top: 50%;
+            left: 50%;
+            color: white;
+            font-size: 10em;
+            transform: translate(-50%, -50%);
+            animation: heart-animation 1s forwards ease-in;
+        }
+    }
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+@keyframes heart-animation {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    20% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    40% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    80% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
