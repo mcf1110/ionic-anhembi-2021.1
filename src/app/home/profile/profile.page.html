@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>eduardo</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-menu-button menu="profile-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="profile">
+  <ion-row class="ion-align-items-center">
+    <ion-col size="auto">
+      <ion-avatar class="profile-avatar ion-margin">
+        <img src="https://randomuser.me/api/portraits/men/42.jpg" />
+      </ion-avatar>
+    </ion-col>
+    <ion-col class="ion-text-center">
+      <h4 class="ion-no-margin">91</h4>
+      <p class="ion-no-margin">Publicações</p>
+    </ion-col>
+    <ion-col class="ion-text-center">
+      <h4 class="ion-no-margin">123</h4>
+      <p class="ion-no-margin">Seguidores</p>
+    </ion-col>
+    <ion-col class="ion-text-center">
+      <h4 class="ion-no-margin">200</h4>
+      <p class="ion-no-margin">Seguindo</p>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-margin-horizontal">
+    <ion-col size="12">
+      <p class="ion-no-margin"><strong>Eduardo Marquez</strong></p>
+      <p class="ion-no-margin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, ipsum rerum. Praesentium
+      </p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="posts">
+    <ion-col size="4" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]">
+      <img [src]="'https://picsum.photos/id/'+(i*5)+'/200/200'" alt="">
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-menu contentId="profile" menuId="profile-menu" side="end" type="overlay">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>eduardo</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-label>Itens Arquivados</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Sua Atividade</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Código QR</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>

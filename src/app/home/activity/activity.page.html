@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Atividade</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Esta semana</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let i of [1,2,3,4]">
+      <ion-avatar slot="start">
+        <img [src]="'https://randomuser.me/api/portraits/men/'+i+'.jpg'" />
+      </ion-avatar>
+      <ion-label>
+        <strong>fulanodetal_{{i}}</strong> começou a seguir você
+      </ion-label>
+    </ion-item>
+    <ion-list-header>
+      <ion-label>Este mês</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let i of [1,2,3,4,5,6,7]">
+      <ion-avatar slot="start">
+        <img [src]="'https://randomuser.me/api/portraits/men/'+(i+4)+'.jpg'" />
+      </ion-avatar>
+      <ion-label>
+        <strong>fulanodetal_{{i}}</strong> comentou na sua foto
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

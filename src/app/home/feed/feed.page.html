@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/200px-Instagram_logo.svg.png"
+        alt="Instagram">
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="paper-plane-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides [options]="{freeMode: true, slidesPerView: 'auto'}">
+    <ion-slide *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
+      <ion-col class="ion-align-items-center">
+        <ion-avatar>
+          <img [src]="'https://randomuser.me/api/portraits/women/'+i+'.jpg'" />
+        </ion-avatar>
+        <p>usuario</p>
+      </ion-col>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-card class="post-card" *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+    <ion-card-header class="ion-no-padding">
+      <ion-row class="ion-align-items-center">
+        <ion-col size="auto">
+          <ion-avatar class="author-avatar">
+            <img [src]="'https://randomuser.me/api/portraits/women/'+(i+20)+'.jpg'" />
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="auto">
+          <p class="ion-no-margin">usuario_{{i}}</p>
+        </ion-col>
+        <ion-col size="auto" class="ml-auto">
+          <ion-button size="small" fill="clear" color="dark">
+            <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+    <img [src]="'https://picsum.photos/id/'+(i*10)+'/500/500'" alt="">
+
+    <ion-row>
+      <ion-col size="auto">
+        <ion-button size="small" fill="clear" color="dark">
+          <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-button size="small" fill="clear" color="dark">
+          <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-button size="small" fill="clear" color="dark">
+          <ion-icon slot="icon-only" name="paper-plane-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col class="ml-auto" size="auto">
+        <ion-button size="small" fill="clear" color="dark">
+          <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-card-content>
+      <ion-row>
+        <ion-avatar class="commenter-avatar">
+          <img [src]="'https://randomuser.me/api/portraits/women/'+(2*i+20)+'.jpg'" />
+        </ion-avatar>
+        <ion-avatar class="commenter-avatar">
+          <img [src]="'https://randomuser.me/api/portraits/women/'+(2*i+21)+'.jpg'" />
+        </ion-avatar>
+        <p class="ion-no-margin">
+          Curtido por <strong>xyzasda</strong> e <strong>outras pessoas</strong>
+        </p>
+      </ion-row>
+
+      <p class="ion-no-margin">
+        <strong>xyzasda</strong>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem sequi.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
