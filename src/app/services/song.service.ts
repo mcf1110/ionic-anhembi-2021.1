@@ -5,18 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class SongService {
 
-  private songs = [
-    {
-      id: 1,
-      title: 'Maroon 5',
-      favorite: true
-    },
-    {
-      id: 2,
-      title: 'Dua Lipa',
-      favorite: false
-    }
-  ];
+  private songs = [];
 
   public all() {
     return this.songs;
@@ -29,6 +18,11 @@ export class SongService {
   public update(song) {
     const index = this.songs.findIndex(s => s.id === song.id);
     this.songs[index] = song;
+  }
+
+  public add(song) {
+    const maxId = Math.max(0, ...this.songs.map(s => s.id))
+    this.songs.push({ ...song, id: maxId + 1 });
   }
 
   constructor() { }
