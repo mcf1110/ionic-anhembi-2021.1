@@ -1,14 +1,12 @@
-.profile-avatar {
-  width: 80px;
-  height: 80px;
-}
-
 .posts {
   img {
     margin-bottom: -4px;
   }
   ion-col {
-    transition: all 0.3s;
     padding: 1px;
   }
+}
+
+ion-searchbar {
+  --box-shadow: none;
 }

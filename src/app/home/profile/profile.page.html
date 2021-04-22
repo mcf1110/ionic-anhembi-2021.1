@@ -38,10 +38,18 @@
       </p>
     </ion-col>
   </ion-row>
+  <ion-segment [(ngModel)]="nCols">
+    <ion-segment-button value="3">
+      <ion-icon name="grid"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="1">
+      <ion-icon name="square"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
 
   <ion-row class="posts">
-    <ion-col size="4" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]">
-      <img [src]="'https://picsum.photos/id/'+(i*5)+'/200/200'" alt="">
+    <ion-col [size]="12/nCols" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]">
+      <img [src]="'https://picsum.photos/id/'+(i*5)+'/500/500'" alt="">
     </ion-col>
   </ion-row>
 </ion-content>

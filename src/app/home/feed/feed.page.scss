@@ -1,44 +1,78 @@
 ion-title {
-    img {
-        height: 35px;
-        margin-top: 5px;
-        margin-bottom: -5px;
-    }
+  img {
+    height: 35px;
+    margin-top: 5px;
+    margin-bottom: -5px;
+  }
 }
 
 ion-slide {
-    width: 64px;
-    margin: 0.25em 0.5em;
-    p {
-        font-size: 0.6em;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-    }
-    ion-avatar {
-        margin: auto;
-        border: 2px orange solid;
-    }
+  width: 64px;
+  margin: 0.25em 0.5em;
+  p {
+    font-size: 0.6em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  ion-avatar {
+    margin: auto;
+    border: 2px orange solid;
+  }
 }
 
 .post-card {
-    ion-avatar.author-avatar {
-        width: 32px;
-        height: 32px;
-    }
+  ion-avatar.author-avatar {
+    width: 32px;
+    height: 32px;
+  }
 
-    .commenter-avatar {
-        width: 24px;
-        height: 24px;
-        border: 2px white solid;
-        z-index: 1;
-        + .commenter-avatar {
-            margin-left: -10px;
-            z-index: 0;
-        }
+  .post-picture {
+    position: relative;
+    ion-icon {
+      position: absolute;
+      font-size: 10em;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: heart-jump 1s;
+      animation-fill-mode: forwards;
     }
+  }
+
+  .commenter-avatar {
+    width: 24px;
+    height: 24px;
+    border: 2px white solid;
+    z-index: 1;
+    + .commenter-avatar {
+      margin-left: -10px;
+      z-index: 0;
+    }
+  }
 }
 
 .ml-auto {
-    margin-left: auto;
+  margin-left: auto;
+}
+
+@keyframes heart-jump {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  15% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  30% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  80% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
 }
