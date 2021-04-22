@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalhes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="post-card">
+    <ion-card-header class="ion-no-padding">
+      <ion-row class="ion-align-items-center">
+        <ion-col size="auto">
+          <ion-avatar class="author-avatar">
+            <img [src]="'//github.com/'+post.user+'.png'" />
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="auto">
+          <p class="ion-no-margin">{{post.user}}</p>
+        </ion-col>
+        <ion-col size="auto" class="ml-auto">
+          <ion-button size="small" fill="clear" color="dark">
+            <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+    <div class="post-picture">
+      <ion-icon *ngIf="post.liked && post.dirty" name="heart" color="light"></ion-icon>
+      <img (click)="toggleLike(post)" [src]="'https://picsum.photos/id/'+(post.id)+'/500/500'" alt="">
+    </div>
+
+    <ion-row>
+      <ion-col size="auto">
+        <ion-button size="small" fill="clear" (click)="toggleLike(post)" [color]="post.liked? 'danger' :'dark'">
+          <ion-icon slot="icon-only" [name]="post.liked? 'heart' : 'heart-outline'"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-button size="small" fill="clear" color="dark">
+          <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-button size="small" fill="clear" color="dark">
+          <ion-icon slot="icon-only" name="paper-plane-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col class="ml-auto" size="auto">
+        <ion-button size="small" fill="clear" color="dark">
+          <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-card-content>
+      <ion-row>
+        <ion-avatar class="commenter-avatar">
+          <img [src]="'https://randomuser.me/api/portraits/women/'+(post.id)+'.jpg'" />
+        </ion-avatar>
+        <ion-avatar class="commenter-avatar">
+          <img [src]="'https://randomuser.me/api/portraits/women/'+(post.id+1)+'.jpg'" />
+        </ion-avatar>
+        <p class="ion-no-margin">
+          Curtido por <strong>xyzasda</strong> e <strong>outras pessoas</strong>
+        </p>
+      </ion-row>
+
+      <p class="ion-no-margin">
+        <strong>{{post.user}}</strong>
+        {{post.description}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>eduardo</ion-title>
+    <ion-title>luizreisn</ion-title>
 
     <ion-buttons slot="end">
       <ion-button>
@@ -15,11 +15,11 @@
   <ion-row class="ion-align-items-center">
     <ion-col size="auto">
       <ion-avatar class="profile-avatar ion-margin">
-        <img src="https://randomuser.me/api/portraits/men/42.jpg" />
+        <img src="//github.com/luizreisn.png" />
       </ion-avatar>
     </ion-col>
     <ion-col class="ion-text-center">
-      <h4 class="ion-no-margin">91</h4>
+      <h4 class="ion-no-margin">{{posts.length}}</h4>
       <p class="ion-no-margin">Publicações</p>
     </ion-col>
     <ion-col class="ion-text-center">
@@ -33,7 +33,7 @@
   </ion-row>
   <ion-row class="ion-margin-horizontal">
     <ion-col size="12">
-      <p class="ion-no-margin"><strong>Eduardo Marquez</strong></p>
+      <p class="ion-no-margin"><strong>Luiz Gabriel</strong></p>
       <p class="ion-no-margin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, ipsum rerum. Praesentium
       </p>
     </ion-col>
@@ -48,8 +48,8 @@
   </ion-segment>
 
   <ion-row class="posts">
-    <ion-col [size]="12/nCols" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]">
-      <img [src]="'https://picsum.photos/id/'+(i*5)+'/500/500'" alt="">
+    <ion-col [size]="12/nCols" *ngFor="let post of posts">
+      <img [routerLink]="['details', post.id]" [src]="'https://picsum.photos/id/'+(post.id)+'/500/500'" alt="">
     </ion-col>
   </ion-row>
 </ion-content>
