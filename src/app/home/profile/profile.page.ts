@@ -15,26 +15,22 @@ export class ProfilePage implements OnInit {
       liked: false,
       user: 'luizreisn',
       description: 'Legenda',
-      dirty: false,
     }, {
       id: 15,
       liked: false,
       user: 'luizreisn',
       description: 'Sempre em contato com a natureza!',
-      dirty: false,
     }, {
       id: 80,
       liked: true,
       user: 'luizreisn',
       description: 'dei like na propria foto',
-      dirty: false,
     },
     {
       id: 33,
       liked: false,
       user: 'luizreisn',
       description: 'Isso ai mesmo',
-      dirty: false,
     },
   ]
 
