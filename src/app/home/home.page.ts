@@ -1,11 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ContactDetailsModalComponent } from '../components/contact-details-modal/contact-details-modal.component';
-
-interface Contact {
-  name: string;
-  user: string;
-}
+import { Contact, ContactService } from '../services/contact.service';
 
 @Component({
   selector: 'app-home',
@@ -14,42 +10,14 @@ interface Contact {
 })
 export class HomePage {
 
-  public contacts: Contact[] = [
-    {
-      name: 'Matheus',
-      user: 'mcf1110'
-    },
-    {
-      name: 'Rafaela',
-      user: 'java2124'
-    },
-    {
-      name: 'Leo',
-      user: 'lele123'
-    },
-    {
-      name: 'Augusto',
-      user: 'gusmoreto'
-    },
-    {
-      name: 'Isabella',
-      user: 'IsabellaFagundes'
-    },
-    {
-      name: 'Guilherme',
-      user: 'gui-leandro'
-    },
-    {
-      name: 'Arthur',
-      user: 'aarthurssl'
-    },
-    {
-      name: 'Matheus',
-      user: 'Math-rm1'
-    }
-  ];
+  public contacts: Contact[];
 
-  constructor(private modalController: ModalController) { }
+  constructor(
+    private modalController: ModalController,
+    private contactService: ContactService
+  ) {
+    this.contacts = this.contactService.allContacts;
+  }
 
   public async openModal(contact: Contact) {
     const modal = await this.modalController.create({

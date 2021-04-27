@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { ContactService } from '../services/contact.service';
 
 @Component({
   selector: 'app-create',
@@ -12,13 +14,17 @@ export class CreatePage implements OnInit {
     user: ''
   };
 
-  constructor() { }
+  constructor(
+    private contactService: ContactService,
+    private navCtrl: NavController
+  ) { }
 
   ngOnInit() {
   }
 
   createContact() {
-    console.log(this.emptyContact);
+    this.contactService.addContact(this.emptyContact);
+    this.navCtrl.back();
   }
 
 }
