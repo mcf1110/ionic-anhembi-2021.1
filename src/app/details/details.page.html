@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalhes de {{userId}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="user">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="auto">
+        <ion-avatar>
+          <img [src]="user.avatar_url" />
+        </ion-avatar>
+      </ion-col>
+      <ion-col>
+        <h1 class="ion-no-margin">{{user.name}}</h1>
+        <p class="ion-no-margin">
+          <small>
+            <ion-text color="medium">{{user.location}}</ion-text>
+          </small>
+        </p>
+        <p>{{user.bio}}</p>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
