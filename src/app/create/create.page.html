@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Criar contato</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-contact-form [contact]="newContact" (saved)="handleSave()"></app-contact-form>
+</ion-content>
