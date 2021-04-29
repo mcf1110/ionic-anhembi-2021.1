@@ -34,5 +34,10 @@ export class SongService {
     this.songs[index] = updatedSong;
   }
 
+  public addSong(newSong: Song) {
+    newSong.id = 1 + Math.max(0, ...this.songs.map(s => s.id));
+    this.songs.push(newSong);
+  }
+
   constructor() { }
 }
