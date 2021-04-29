@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Título</ion-label>
+    <ion-input type="text" [(ngModel)]="song.title"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Artista</ion-label>
+    <ion-input type="text" [(ngModel)]="song.artist"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Favorita</ion-label>
+    <ion-toggle slot="end" [(ngModel)]="song.favorite"></ion-toggle>
+  </ion-item>
+  <ion-button (click)="update()" expand="block" class="ion-margin-top">
+    <ion-icon slot="start" name="save"></ion-icon>
+    Salvar
+  </ion-button>
+</ion-content>
