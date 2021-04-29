@@ -1,0 +1,6 @@
+ion-content {
+    --background: url(/assets/bg.jpeg) center;
+    &::part(background) {
+        background-size: cover;
+    }
+}
