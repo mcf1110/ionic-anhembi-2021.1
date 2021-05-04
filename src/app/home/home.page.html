@@ -1,10 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-searchbar (ionChange)="performSearch()" [(ngModel)]="query" placeholder="Buscar artista" ></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+  <ion-list *ngIf="artists.length">
+    <ion-item *ngFor="let artist of artists" [routerLink]="['/results', artist.id]">
+      <ion-label>
+        <h2>{{artist.name}}</h2>
+        <p>{{artist.disambiguation}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
