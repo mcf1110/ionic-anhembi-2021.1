@@ -1,55 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NavController } from '@ionic/angular';
+import { Contact, ContactService } from '../services/contact.service';
 
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.page.html',
   styleUrls: ['./edit.page.scss'],
 })
-export class EditPage implements OnInit {
+export class EditPage {
 
-  private contacts = [
-    {
-      name: 'Matheus',
-      user: 'mcf1110'
-    },
-    {
-      name: 'Munizera',
-      user: 'MatheusMunizera'
-    },
-    {
-      name: 'Renalt',
-      user: 'zerklly'
-    },
-    {
-      name: 'Laura',
-      user: 'Laurokah'
-    },
-    {
-      name: 'Luiz',
-      user: 'louizlv'
+  public contact: Contact;
+  private username: string;
 
-    }, {
-      name: 'Lucas',
-      user: 'LucasFreire1'
-    }, {
-      name: 'Jonathan',
-      user: 'JonathanFerreira10'
-    },
-  ];
-
-  public contact;
-
-  constructor(route: ActivatedRoute) {
-    const username = route.snapshot.paramMap.get('username');
-    this.contact = this.contacts.find(c => c.user === username);
-  }
-
-  ngOnInit() {
+  constructor(
+    route: ActivatedRoute,
+    private contactService: ContactService,
+    private navController: NavController
+  ) {
+    this.username = route.snapshot.paramMap.get('username');
+    this.contact = this.contactService.findByUsername(this.username);
   }
 
   handleSave() {
-    console.log('Atualizando', this.contact);
+    this.contactService.updateContact(this.username, this.contact);
+    this.navController.back();
   }
 
 }
