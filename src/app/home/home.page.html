@@ -1,10 +1,26 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      Conversor de bitcoin
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">Valor em BTC</ion-label>
+    <ion-input type="number" [(ngModel)]="value"></ion-input>
+  </ion-item>
+  <div *ngIf="currentPrice">
+    <ion-item *ngFor="let k of ['USD', 'GBP', 'EUR']">
+      <ion-label>
+        <h2>{{currentPrice.bpi[k].rate_float * value | currency:k}}</h2>
+        <p>{{currentPrice.bpi[k].description}}</p>
+      </ion-label>
+    </ion-item>
+
+    <p>
+      <ion-text color="medium"><small>{{currentPrice.disclaimer}}</small></ion-text>
+    </p>
+  </div>
 </ion-content>
