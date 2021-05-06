@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
       Blank
     </ion-title>
@@ -7,4 +7,14 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">Valor em BTC</ion-label>
+    <ion-input [(ngModel)]="value" type="number"></ion-input>
+  </ion-item>
+  <ion-item *ngFor="let rate of rates">
+    <ion-label>
+      <h2>{{rate.rate_float * value | currency:rate.code}}</h2>
+      <p>{{rate.description}}</p>
+    </ion-label>
+  </ion-item>
 </ion-content>
