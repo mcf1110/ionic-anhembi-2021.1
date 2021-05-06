@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalhes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="user">
+    <ion-card-header>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="auto">
+          <ion-avatar>
+            <img [src]="user.avatar_url" />
+          </ion-avatar>
+        </ion-col>
+        <ion-col>
+          <ion-card-title>{{user.name}}</ion-card-title>
+          <ion-card-subtitle>{{user.login}}</ion-card-subtitle>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{user.bio}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
