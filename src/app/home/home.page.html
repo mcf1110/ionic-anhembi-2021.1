@@ -1,10 +1,37 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      Cidades
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content>
+  <ion-card class="ion-text-center" color="light" [routerLink]="['/details', city.id]" *ngFor="let city of cities">
+    <ion-card-header>
+      <ion-card-title>{{city.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-text color="medium">
+        <ion-row>
+          <ion-col>
+            <p>Latitude: {{city.latitude}}</p>
+          </ion-col>
+          <ion-col>
+            <p>Longitude: {{city.longitude}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-text>
+      <ion-button (click)="confirmRemove(city.id, $event)" expand="block" fill="clear" color="danger">
+        <ion-icon slot="start" name="trash"></ion-icon>
+        Remover
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab routerLink="/create" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
