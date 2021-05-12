@@ -7,24 +7,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-button expand="block">
-    <ion-icon slot="start" name="location"></ion-icon>
-    Pegar localização
-  </ion-button>
-
+<ion-content>
   <ion-card>
     <ion-card-content>
-      <ion-searchbar placeholder="Buscar cidade"></ion-searchbar>
+      <ion-button expand="block">
+        <ion-icon slot="start" name="location"></ion-icon>
+        Pegar localização
+      </ion-button>
+      <ion-searchbar [(ngModel)]="query" (ionChange)="search()" placeholder="Buscar cidade"></ion-searchbar>
       <ion-list>
-        <ion-item (click)="addCity()">
-          <ion-label>São Paulo</ion-label>
-        </ion-item>
-        <ion-item (click)="addCity()">
-          <ion-label>New York</ion-label>
-        </ion-item>
-        <ion-item (click)="addCity()">
-          <ion-label>Madrid</ion-label>
+        <ion-item button (click)="addCity(city)" *ngFor="let city of searchResults">
+          <ion-label>{{city.name}}</ion-label>
         </ion-item>
       </ion-list>
     </ion-card-content>

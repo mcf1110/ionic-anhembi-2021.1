@@ -12,9 +12,38 @@
   <p>Latitude: {{city.latitude}}</p>
   <p>Longitude: {{city.longitude}}</p>
 
-  <ion-card>
+  <ion-card *ngFor="let day of weather">
+    <ion-card-header>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="auto">
+          <img class="weather-icon"
+            [src]="'https://www.metaweather.com/static/img/weather/'+day.weather_state_abbr+'.svg'" alt="">
+        </ion-col>
+        <ion-col>
+          <ion-card-title>{{day.applicable_date | date:'longDate'}}</ion-card-title>
+          <ion-card-subtitle>{{day.weather_state_name}}</ion-card-subtitle>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
     <ion-card-content>
-      Awesome content
+      <ion-row>
+        <ion-col>
+          <ion-icon name="water"></ion-icon>
+          {{day.humidity}}
+        </ion-col>
+        <ion-col>
+          <ion-icon name="thermometer"></ion-icon>
+          {{day.the_temp | number}}
+        </ion-col>
+        <ion-col>
+          <ion-icon name="arrow-up" color="danger"></ion-icon>
+          {{day.max_temp | number}}
+        </ion-col>
+        <ion-col>
+          <ion-icon name="arrow-down" color="secondary"></ion-icon>
+          {{day.min_temp | number}}
+        </ion-col>
+      </ion-row>
     </ion-card-content>
   </ion-card>
 

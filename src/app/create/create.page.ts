@@ -1,25 +1,32 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { City } from '../models/City';
 import { CityService } from '../services/city.service';
+import { MetaWeatherService } from '../services/meta-weather.service';
 
 @Component({
   selector: 'app-create',
   templateUrl: './create.page.html',
   styleUrls: ['./create.page.scss'],
 })
-export class CreatePage implements OnInit {
+export class CreatePage {
 
-  constructor(private cityService: CityService) { }
+  public query = '';
+  public searchResults: City[];
 
-  ngOnInit() {
+  constructor(
+    private cityService: CityService,
+    private metaWeather: MetaWeatherService,
+    private navController: NavController
+  ) { }
+
+  public addCity(city: City) {
+    this.cityService.add(city);
+    this.navController.back();
   }
 
-  public addCity() {
-    this.cityService.add({
-      id: 1,
-      name: 'São Paulo',
-      latitude: 15,
-      longitude: 42
-    })
+  public async search() {
+    this.searchResults = await this.metaWeather.search(this.query);
   }
 
 }
