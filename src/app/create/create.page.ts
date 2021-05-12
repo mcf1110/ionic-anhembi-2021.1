@@ -29,4 +29,9 @@ export class CreatePage {
     this.searchResults = await this.metaWeather.search(this.query);
   }
 
+  public async getCurrentPostion() {
+    const city = await this.metaWeather.getCurrentCity();
+    this.addCity(city);
+  }
+
 }

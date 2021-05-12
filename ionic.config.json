@@ -1,5 +1,7 @@
 {
   "name": "ionic-anhembi-2021.1",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
