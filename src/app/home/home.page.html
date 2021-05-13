@@ -1,10 +1,14 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      Meu app
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+  <img [src]="image" alt="">
+  <ion-button (click)="getPhoto()" expand="block">
+    Diga xis
+  </ion-button>
 </ion-content>

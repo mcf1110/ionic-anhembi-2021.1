@@ -1,0 +1,18 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "ionic-anhembi-2021.1",
+  "bundledWebRuntime": false,
+  "npmClient": "yarn",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {},
+  "linuxAndroidStudioPath": "/opt/android-studio/bin/studio.sh",
+  "server": {
+    "url": "http://192.168.15.23:8100",
+    "cleartext": true
+  }
+}
