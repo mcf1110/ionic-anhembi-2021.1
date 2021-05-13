@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Releases</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="result">
+    <ion-card-header>
+      <ion-card-title>{{result.name}}</ion-card-title>
+      <ion-card-subtitle>
+        {{result['life-span'].begin | date}}
+         <span *ngIf="result['life-span'].ended">
+           -
+           {{result['life-span'].end | date}}
+         </span>
+        
+        </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let release of result['release-groups']">
+          <ion-thumbnail slot="start">
+            <img [src]="'//coverartarchive.org/release-group/'+release.id+'/front-250'" />
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{release.title}}</h2>
+            <p>{{release['first-release-date'] | date}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
