@@ -1,0 +1,14 @@
+{
+  "appId": "br.com.anhembi.mariopic",
+  "appName": "MarioPic",
+  "bundledWebRuntime": false,
+  "npmClient": "yarn",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {},
+  "linuxAndroidStudioPath": "/opt/android-studio/bin/studio.sh"
+}

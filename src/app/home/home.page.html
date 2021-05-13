@@ -1,10 +1,14 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="secondary">
     <ion-title>
-      Blank
+      Título
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+  <ion-button color="secondary" (click)="getPicture()" expand="block">
+    Diga xis
+  </ion-button>
+  <img [src]="image" alt="">
 </ion-content>
