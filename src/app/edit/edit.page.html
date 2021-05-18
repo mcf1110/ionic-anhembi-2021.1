@@ -8,5 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <app-contact-form [contact]="contact" (contactSaved)="saveChanges()"></app-contact-form>
+  <ng-container *ngIf="contact$ | async as contact">
+    <app-contact-form [contact]="contact" (contactSaved)="saveChanges(contact)"></app-contact-form>
+  </ng-container>
 </ion-content>

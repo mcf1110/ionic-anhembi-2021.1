@@ -7,8 +7,9 @@
 </ion-header>
 
 <ion-content>
+  <ion-searchbar (ionChange)="updateSearch($event)"></ion-searchbar>
   <ion-list>
-    <ion-item *ngFor="let contact of contacts" (click)="openModal(contact)">
+    <ion-item *ngFor="let contact of contacts$ | async" (click)="openModal(contact)">
       <ion-avatar slot="start">
         <img [src]="'//github.com/'+contact.user+'.png'" />
       </ion-avatar>

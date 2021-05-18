@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { ContactService } from '../services/contact.service';
+import { map, switchMap, tap } from 'rxjs/operators';
+import { Contact, ContactService } from '../services/contact.service';
 
 @Component({
   selector: 'app-edit',
@@ -10,7 +11,7 @@ import { ContactService } from '../services/contact.service';
 })
 export class EditPage {
 
-  public contact;
+  public contact$;
   private originalUser;
 
   constructor(
@@ -18,12 +19,15 @@ export class EditPage {
     private contactService: ContactService,
     private navCtrl: NavController
   ) {
+    this.contact$ = route.paramMap.pipe(
+      map(pm => pm.get('user')),
+      switchMap(user => contactService.findByUsername(user))
+    )
     this.originalUser = route.snapshot.paramMap.get('user');
-    this.contact = contactService.findByUsername(this.originalUser);
   }
 
-  public saveChanges() {
-    this.contactService.updateByUsername(this.originalUser, this.contact);
+  public saveChanges(contact: Contact) {
+    this.contactService.updateByUsername(this.originalUser, contact);
     this.navCtrl.back();
   }
 
