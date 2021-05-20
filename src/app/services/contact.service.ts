@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface Contact {
   name: string;
@@ -11,7 +12,9 @@ export interface Contact {
 })
 export class ContactService {
 
-  public contacts: Contact[] = [];
+  private contacts: Contact[] = [];
+  private contactSubject: BehaviorSubject<Contact[]> = new BehaviorSubject([]);
+  public contactStream = this.contactSubject.asObservable();
 
 
   public addContact(contact: Contact) {
@@ -37,10 +40,12 @@ export class ContactService {
     const storedContacts = await this.storage.get('contacts') as Contact[];
     if (storedContacts) {
       this.contacts.push(...storedContacts);
+      this.contactSubject.next([...this.contacts]);
     }
   }
 
   private saveAtStorage() {
     this.storage.set('contacts', this.contacts);
+    this.contactSubject.next([...this.contacts]);
   }
 }
