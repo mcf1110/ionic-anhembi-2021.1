@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
+import { BehaviorSubject } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 export interface Contact {
   name: string;
@@ -11,7 +13,9 @@ export interface Contact {
 })
 export class ContactService {
 
-  public contacts: Contact[] = [];
+  private contacts: Contact[] = [];
+  private contactSubject: BehaviorSubject<Contact[]> = new BehaviorSubject([]);
+  public contactStream = this.contactSubject.asObservable();
 
   constructor(private storage: Storage) {
     this.loadFromStorage();
@@ -36,10 +40,12 @@ export class ContactService {
     const loadedContacts: Contact[] | null = await this.storage.get('contacts');
     if (loadedContacts) {
       this.contacts.push(...loadedContacts);
+      this.contactSubject.next([...this.contacts]);
     }
   }
 
   private saveAtStorage() {
     this.storage.set('contacts', this.contacts);
+    this.contactSubject.next([...this.contacts]);
   }
 }

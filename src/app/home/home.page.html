@@ -1,14 +1,12 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>
-      Contatos
-    </ion-title>
+    <ion-searchbar [(ngModel)]="search" (ionChange)="updateSearch()"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let contact of contacts" (click)="openModal(contact)">
+    <ion-item *ngFor="let contact of (contactStream | async)" (click)="openModal(contact)">
       <ion-avatar slot="start">
         <img [src]="'//github.com/'+contact.user+'.png'" />
       </ion-avatar>

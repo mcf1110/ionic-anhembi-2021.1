@@ -1,7 +1,21 @@
 import { Component } from '@angular/core';
 import { IonRouterOutlet, ModalController } from '@ionic/angular';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { DetailsModalComponent } from '../components/details-modal/details-modal.component';
 import { Contact, ContactService } from '../services/contact.service';
+
+import { map, tap } from 'rxjs/operators'
+
+function ordenarListaDeContatos(cs: Contact[]): Contact[] {
+  return [...cs].sort((c1, c2) => c1.name.localeCompare(c2.name))
+}
+
+
+function realizarBusca(v: [Contact[], string]): Contact[] {
+  const [cs, search] = v;
+  return cs.filter(c => c.name.includes(search));
+}
+
 
 
 @Component({
@@ -11,14 +25,22 @@ import { Contact, ContactService } from '../services/contact.service';
 })
 export class HomePage {
 
-  public contacts: Contact[];
+  public contactStream: Observable<Contact[]>;
+  public search = '';
+  public searchStream = new BehaviorSubject('');
 
   constructor(
     private modalController: ModalController,
     private routerOutlet: IonRouterOutlet,
     private contactService: ContactService
   ) {
-    this.contacts = this.contactService.contacts;
+    this.contactStream = combineLatest([
+      this.contactService.contactStream,
+      this.searchStream
+    ]).pipe(
+      map(realizarBusca),
+      map(ordenarListaDeContatos),
+    )
   }
 
   public async openModal(selectedContact: Contact) {
@@ -31,6 +53,10 @@ export class HomePage {
       }
     });
     modal.present();
+  }
+
+  public updateSearch() {
+    this.searchStream.next(this.search);
   }
 
 }
