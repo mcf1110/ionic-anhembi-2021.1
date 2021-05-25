@@ -12,40 +12,82 @@
   <p>Latitude: {{city.latitude}}</p>
   <p>Longitude: {{city.longitude}}</p>
 
-  <ion-card *ngFor="let day of weather">
-    <ion-card-header>
-      <ion-row class="ion-align-items-center">
-        <ion-col size="auto">
-          <img class="weather-icon"
-            [src]="'https://www.metaweather.com/static/img/weather/'+day.weather_state_abbr+'.svg'" alt="">
-        </ion-col>
-        <ion-col>
-          <ion-card-title>{{day.applicable_date | date:'longDate'}}</ion-card-title>
-          <ion-card-subtitle>{{day.weather_state_name}}</ion-card-subtitle>
-        </ion-col>
-      </ion-row>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-row>
-        <ion-col>
-          <ion-icon name="water"></ion-icon>
-          {{day.humidity}}
-        </ion-col>
-        <ion-col>
-          <ion-icon name="thermometer"></ion-icon>
-          {{day.the_temp | number}}
-        </ion-col>
-        <ion-col>
-          <ion-icon name="arrow-up" color="danger"></ion-icon>
-          {{day.max_temp | number}}
-        </ion-col>
-        <ion-col>
-          <ion-icon name="arrow-down" color="secondary"></ion-icon>
-          {{day.min_temp | number}}
-        </ion-col>
-      </ion-row>
-    </ion-card-content>
-  </ion-card>
+  <div *ngIf="weather$ | async as weather; else loadingCards">
+    <ion-card *ngFor="let day of weather">
+      <ion-card-header>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="auto">
+            <img class="weather-icon"
+              [src]="'https://www.metaweather.com/static/img/weather/'+day.weather_state_abbr+'.svg'" alt="">
+          </ion-col>
+          <ion-col>
+            <ion-card-title>{{day.applicable_date | date:'longDate'}}</ion-card-title>
+            <ion-card-subtitle>{{day.weather_state_name}}</ion-card-subtitle>
+          </ion-col>
+        </ion-row>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row>
+          <ion-col>
+            <ion-icon name="water"></ion-icon>
+            {{day.humidity}}
+          </ion-col>
+          <ion-col>
+            <ion-icon name="thermometer"></ion-icon>
+            {{day.the_temp | number}}
+          </ion-col>
+          <ion-col>
+            <ion-icon name="arrow-up" color="danger"></ion-icon>
+            {{day.max_temp | number}}
+          </ion-col>
+          <ion-col>
+            <ion-icon name="arrow-down" color="secondary"></ion-icon>
+            {{day.min_temp | number}}
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ng-template #loadingCards>
+    <ion-card *ngFor="let i of [1,2,3,4,5]">
+      <ion-card-header>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="auto">
+            <ion-skeleton-text animated class="weather-icon"></ion-skeleton-text>
+          </ion-col>
+          <ion-col>
+            <ion-card-title>
+              <ion-skeleton-text animated style="height: 1em; width: 7em"></ion-skeleton-text>
+            </ion-card-title>
+            <ion-card-subtitle>
+              <ion-skeleton-text animated style="height: 1em; width: 7em"></ion-skeleton-text>
+            </ion-card-subtitle>
+          </ion-col>
+        </ion-row>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row>
+          <ion-col>
+            <ion-icon name="water"></ion-icon>
+            <ion-skeleton-text animated style="height: 1em; width: 4em; display: inline-block"></ion-skeleton-text>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="thermometer"></ion-icon>
+            <ion-skeleton-text animated style="height: 1em; width: 4em; display: inline-block"></ion-skeleton-text>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="arrow-up" color="danger"></ion-icon>
+            <ion-skeleton-text style="height: 1em; width: 4em; display: inline-block"></ion-skeleton-text>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="arrow-down" color="secondary"></ion-icon>
+            <ion-skeleton-text style="height: 1em; width: 4em; display: inline-block"></ion-skeleton-text>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
 
 
 </ion-content>

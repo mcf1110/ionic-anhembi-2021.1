@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { City } from '../models/City';
 import { ConsolidatedWeather } from '../models/MetaWeatherForecast';
 import { CityService } from '../services/city.service';
@@ -12,7 +13,7 @@ import { MetaWeatherService } from '../services/meta-weather.service';
 })
 export class DetailsPage {
   public city: City;
-  public weather: ConsolidatedWeather[];
+  public weather$: Observable<ConsolidatedWeather[]>;
 
   constructor(
     private cityService: CityService,
@@ -23,8 +24,8 @@ export class DetailsPage {
     this.loadWeather(id);
   }
 
-  private async loadWeather(id: number) {
-    this.weather = await this.metaWeather.getForecast(id);
+  private loadWeather(id: number) {
+    this.weather$ = this.metaWeather.getForecast(id);
   }
 
 }

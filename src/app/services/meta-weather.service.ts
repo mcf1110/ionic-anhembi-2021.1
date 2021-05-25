@@ -4,6 +4,8 @@ import { City } from '../models/City';
 import { MetaWeatherCity } from '../models/MetaWeatherCity';
 import { ConsolidatedWeather, MetaWeatherForecast } from '../models/MetaWeatherForecast';
 import { Plugins } from '@capacitor/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 const { Geolocation } = Plugins;
 
@@ -34,12 +36,13 @@ export class MetaWeatherService {
     });
   }
 
-  public async getForecast(id: number): Promise<ConsolidatedWeather[]> {
+  public getForecast(id: number): Observable<ConsolidatedWeather[]> {
     const url = this.removeCors(
       'https://www.metaweather.com/api/location/' + id
     );
-    const results = await this.http.get<MetaWeatherForecast>(url).toPromise();
-    return results.consolidated_weather;
+    return this.http.get<MetaWeatherForecast>(url).pipe(
+      map(r => r.consolidated_weather)
+    );
   }
 
   public async getCurrentCity(): Promise<City> {
