@@ -1,13 +1,33 @@
 <ion-header>
   <ion-toolbar>
-    <ion-searchbar [(ngModel)]="currentSearch" (ionChange)="performSearch()" placeholder="Search artists" ></ion-searchbar>
+    <ion-searchbar [(ngModel)]="currentSearch" (ionChange)="performSearch()" placeholder="Search artists">
+    </ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div *ngIf="result">
+
+  <ion-list *ngIf="loading">
+    <ion-item *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
+      <ion-label>
+        <h2>
+          <ion-skeleton-text animated style="height: 1em; width: 10em"></ion-skeleton-text>
+        </h2>
+        <p>
+          <ion-skeleton-text animated style="height: 1em; width: 10em"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="!loading && result">
+    <div *ngIf="result.artists.length == 0" class="ion-padding ion-text-center">
+      <ion-text color="medium">
+        <h2>Nenhum artista encontrado</h2>
+      </ion-text>
+    </div>
     <ion-list *ngFor="let artist of result.artists">
-      <ion-item [routerLink]="['/details', artist.id]" >
+      <ion-item [routerLink]="['/details', artist.id]">
         <ion-label>
           <h2>{{artist.name}}</h2>
           <p>{{artist.disambiguation}}</p>

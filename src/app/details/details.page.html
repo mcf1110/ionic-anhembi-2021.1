@@ -20,7 +20,7 @@
       <ion-list>
         <ion-item *ngFor="let release of artistInfo['release-groups']">
           <ion-thumbnail slot="start">
-            <img [src]="'http://coverartarchive.org/release-group/'+release.id+'/front-250'" />
+            <img [src]="'//coverartarchive.org/release-group/'+release.id+'/front-250'" />
           </ion-thumbnail>
           <ion-label>
             <h2>{{release.title}}</h2>

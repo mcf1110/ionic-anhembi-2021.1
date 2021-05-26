@@ -11,11 +11,23 @@ export class HomePage {
 
   public currentSearch = '';
   public result: ArtistSearchResult = null;
+  public loading = false;
 
   constructor(private music: MusicService) { }
 
   public async performSearch() {
-    this.result = await this.music.searchArtists(this.currentSearch);
+    this.loading = true;
+    try {
+      this.result = await this.music.searchArtists(this.currentSearch);
+    } catch (e) {
+      this.result = {
+        artists: [],
+        count: 0,
+        created: null,
+        offset: 0
+      };
+    }
+    this.loading = false;
   }
 
 }
